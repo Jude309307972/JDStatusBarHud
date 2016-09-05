@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JDStatusBarHud.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)nomalText:(id)sender {
+    
+}
+- (IBAction)hide {
+    [JDStatusBarHud hide];
+}
+
+- (IBAction)loading {
+    
+}
+
+- (IBAction)error {
+    
+}
+
+- (IBAction)success {
+    [JDStatusBarHud showSuccess:@"加载成功！"];
 }
 
 @end
