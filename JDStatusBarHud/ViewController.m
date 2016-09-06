@@ -33,11 +33,11 @@
 }
 
 - (IBAction)loading {
-    
+    [JDStatusBarHud showLoading:@"正在加载..."];
 }
 
 - (IBAction)error {
-    [JDStatusBarHud showError:nil];
+    [JDStatusBarHud showError:@"加载失败！"];
 }
 
 - (IBAction)success {

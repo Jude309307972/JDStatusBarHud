@@ -49,7 +49,27 @@ static NSTimer *timer_;
 
 + (void)showLoading:(NSString *)msg
 {
+    [timer_ invalidate];
+    timer_ = nil;
     
+    [self showWindow];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.font = JDMessageFont;
+    label.frame = window_.bounds;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = msg;
+    label.textColor = [UIColor whiteColor];
+    [window_ addSubview:label];
+    
+    UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [loadingView startAnimating];
+    
+    CGFloat msgW = [msg sizeWithAttributes:@{NSFontAttributeName : JDMessageFont}].width;
+    CGFloat centerX = (window_.frame.size.width - msgW) * 0.5 - 20;
+    CGFloat centerY = window_.frame.size.height * 0.5;
+    loadingView.center = CGPointMake(centerX, centerY);
+    [window_ addSubview:loadingView];
 }
 
 + (void)showMesage:(NSString *)msg
