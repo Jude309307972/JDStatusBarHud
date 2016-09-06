@@ -37,7 +37,7 @@
 }
 
 - (IBAction)error {
-    
+    [JDStatusBarHud showError:nil];
 }
 
 - (IBAction)success {
